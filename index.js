@@ -24,7 +24,7 @@ function main(context) {
     requiredFiles: [
       'bin/x64/Cyberpunk2077.exe'
     ],
-    supportedTools: [],
+    supportedTools: moddingTools,
     requiresLauncher: requiresGoGLauncher,
     setup: prepareForModding,
     environment: {
@@ -45,6 +45,19 @@ function main(context) {
   return true
 }
 
+const moddingTools = [
+  {
+    id: 'CSVMerge',
+    name: 'CSVMerge',
+    executable: () => path.join('csvmerge', 'CSVMerge.cmd'),
+    requiredFiles: [
+      path.join('csvmerge', 'CSVMerge.cmd'),
+      path.join('csvmerge', 'wolvenkitcli', 'WolvenKit.CLI.exe'),
+    ],
+    shell: true,
+    relative: true,
+  }
+];
 
 /** Correct Directory structure:
  * root_folder
